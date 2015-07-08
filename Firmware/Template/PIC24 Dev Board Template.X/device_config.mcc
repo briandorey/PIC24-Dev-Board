@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration device="PIC24FJ128GC006" mcc_version="v2.25.2">
+    <managers>
+        <manager generated="true" name="Pin Manager" reloadPin="manual">
+            <setting name="package" option="TQFP64"/>
+            <setting name="sorting" option="true"/>
+            <resource customName="RE3_LED" digital="true" direction="OUTPUT" function="RE3" ioc="0" module="GPIO" name="RE3" start="false" type="pin" wpu="false"/>
+            <resource customName="RE4_LED" digital="true" direction="OUTPUT" function="RE4" ioc="0" module="GPIO" name="RE4" start="false" type="pin" wpu="false"/>
+            <resource customName="U1RX" digital="true" direction="INPUT" function="U1RX" ioc="0" module="UART1" name="RG6" start="false" type="pin" wpu="false"/>
+            <resource customName="U1CTS" digital="true" direction="INPUT" function="U1CTS" ioc="0" module="UART1" name="RG7" start="false" type="pin" wpu="false"/>
+            <resource customName="U1TX" digital="true" direction="OUTPUT" function="U1TX" ioc="0" module="UART1" name="RG8" start="false" type="pin" wpu="false"/>
+            <resource customName="U1RTS" digital="true" direction="OUTPUT" function="U1RTS" ioc="0" module="UART1" name="RG9" start="false" type="pin" wpu="false"/>
+            <file checksum="2779735065" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
+            <file checksum="4193994676" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+        </manager>
+        <manager generated="true" name="Interrupt Manager" reloadPin="manual">
+            <resource name="URXI" type="UART1" value="1"/>
+            <resource name="UERI" type="UART1" value="1"/>
+            <resource name="UTXI" type="UART1" value="1"/>
+            <file checksum="1296546857" modified="false" name="interrupt_manager.c" path="mcc_generated_files/interrupt_manager.c"/>
+            <file checksum="3342074355" modified="false" name="interrupt_manager.h" path="mcc_generated_files/interrupt_manager.h"/>
+            <interrupt module="UART1" name="URXI" priority="1"/>
+            <interrupt module="UART1" name="UERI" priority="1"/>
+            <interrupt module="UART1" name="UTXI" priority="1"/>
+        </manager>
+        <manager generated="true" name="System" reloadPin="manual">
+            <initializer comment="" name="Initialize">
+                <setting name="DOZE" option="1:8" register="CLKDIV"/>
+                <setting name="DOZEN" option="disabled" register="CLKDIV"/>
+                <setting name="RCDIV" option="FRC/2" register="CLKDIV"/>
+                <setting name="CPDIV" option="1:1" register="CLKDIV"/>
+                <setting name="PLLEN" option="disabled" register="CLKDIV"/>
+                <setting name="ROI" option="disabled" register="CLKDIV"/>
+                <setting name="STSRC" option="SOSC" register="OSCTUN"/>
+                <setting name="STEN" option="disabled" register="OSCTUN"/>
+                <setting name="STORPOL" option="Interrupt when STOR is 1" register="OSCTUN"/>
+                <setting name="STOR" option="disabled" register="OSCTUN"/>
+                <setting name="STLOCK" option="disabled" register="OSCTUN"/>
+                <setting name="STLPOL" option="Interrupt when STLOCK is 1" register="OSCTUN"/>
+                <setting name="TUN" option="Center frequency" register="OSCTUN"/>
+                <setting name="STSIDL" option="disabled" register="OSCTUN"/>
+                <additionalSetting name="soscEnable" option="OSCCONbits.SOSCEN = 1;"/>
+            </initializer>
+            <setting name="RTCBAT" option="ON"/>
+            <setting name="IOL1WAY" option="ON"/>
+            <setting name="PLLDIV" option="DIV2"/>
+            <setting name="DSWDTPS" option="DSWDTPS1F"/>
+            <setting name="DSSWEN" option="ON"/>
+            <setting name="DSWDTOSC" option="LPRC"/>
+            <setting name="DSBOREN" option="ON"/>
+            <setting name="DSWDTEN" option="ON"/>
+            <setting name="I2C2SEL" option="SEC"/>
+            <setting name="WPDIS" option="WPDIS"/>
+            <setting name="WPFP" option="WPFP127"/>
+            <setting name="WPEND" option="WPENDMEM"/>
+            <setting name="BOREN" option="ON"/>
+            <setting name="WPCFG" option="WPCFGDIS"/>
+            <setting name="SOSCSEL" option="ON"/>
+            <setting name="WDTWIN" option="PS25_0"/>
+            <setting name="POSCMD" option="XT"/>
+            <setting name="IESO" option="ON"/>
+            <setting name="FNOSC" option="PRIPLL"/>
+            <setting name="ALTCVREF" option="CVREF_RB"/>
+            <setting name="WDTCLK" option="LPRC"/>
+            <setting name="WDTCMX" option="WDTCLK"/>
+            <setting name="FCKSM" option="CSECMD"/>
+            <setting name="OSCIOFCN" option="OFF"/>
+            <setting name="ALTADREF" option="AVREF_RB"/>
+            <setting name="WDTPS" option="PS32768"/>
+            <setting name="LPCFG" option="ON"/>
+            <setting name="ICS" option="PGx1"/>
+            <setting name="FWPSA" option="PR128"/>
+            <setting name="WINDIS" option="OFF"/>
+            <setting name="GWRP" option="OFF"/>
+            <setting name="GCP" option="OFF"/>
+            <setting name="FWDTEN" option="WDT_DIS"/>
+            <setting name="JTAGEN" option="OFF"/>
+            <setting name="Primary Oscillator" option="8000000"/>
+            <setting name="Secondary Oscillator" option="32768"/>
+            <setting name="generateConfigBits" option="true"/>
+            <file checksum="2808301982" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
+            <file checksum="3079149507" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
+        </manager>
+    </managers>
+    <modules>
+        <module generated="true" mode="UART" name="UART1" order="0" reloadPin="auto" type="uart_irda">
+            <initializer comment="" name="InitializeDebugPort">
+                <setting name="RTSMD" option="disabled" register="U1MODE"/>
+                <setting name="URXINV" option="disabled" register="U1MODE"/>
+                <setting name="BRGH" option="enabled" register="U1MODE"/>
+                <setting name="UARTEN" option="enabled" register="U1MODE"/>
+                <setting name="STSEL" option="1" register="U1MODE"/>
+                <setting name="WAKE" option="disabled" register="U1MODE"/>
+                <setting name="LPBACK" option="disabled" register="U1MODE"/>
+                <setting name="PDSEL" option="8N" register="U1MODE"/>
+                <setting name="USIDL" option="disabled" register="U1MODE"/>
+                <setting name="ABAUD" option="disabled" register="U1MODE"/>
+                <setting name="IREN" option="disabled" register="U1MODE"/>
+                <setting name="UEN" option="TX_RX" register="U1MODE"/>
+                <setting name="UTXINV" option="disabled" register="U1STA"/>
+                <setting name="UTXEN" option="disabled" register="U1STA"/>
+                <setting name="URXISEL" option="RX_ONE_CHAR" register="U1STA"/>
+                <setting name="UTXISEL0" option="TX_ONE_CHAR" register="U1STA"/>
+                <setting name="ADDEN" option="disabled" register="U1STA"/>
+                <setting name="UTXBRK" option="COMPLETED" register="U1STA"/>
+                <setting name="OERR" option="NO_ERROR_cleared" register="U1STA"/>
+                <setting name="U1TXREG" option="0x0000" register="U1TXREG"/>
+                <setting name="U1RXREG" option="0x0000" register="U1RXREG"/>
+                <setting name="BRG" option="416" register="U1BRG"/>
+                <additionalSetting name="baudRateInput" option="9600"/>
+            </initializer>
+            <setting name="URXI" option="true"/>
+            <setting name="UTXI" option="true"/>
+            <setting name="UERI" option="true"/>
+            <setting name="rxBufSize" option="64"/>
+            <setting name="txBufSize" option="64"/>
+            <file checksum="655617368" modified="false" name="uart1.c" path="mcc_generated_files/uart1.c"/>
+            <file checksum="1015803919" modified="false" name="uart1.h" path="mcc_generated_files/uart1.h"/>
+        </module>
+        <module generated="true" mode="GPIO" name="GPIO" order="1" reloadPin="manual" type="GPIO">
+            <resource customName="RE3_LED" digital="true" direction="OUTPUT" function="RE3" ioc="0" module="GPIO" name="RE3" start="false" type="pin" wpu="false"/>
+            <resource customName="RE4_LED" digital="true" direction="OUTPUT" function="RE4" ioc="0" module="GPIO" name="RE4" start="false" type="pin" wpu="false"/>
+        </module>
+    </modules>
+</configuration>
